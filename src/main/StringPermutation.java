@@ -1,9 +1,13 @@
+import com.sun.istack.internal.NotNull;
 import java.util.Set;
 import java.util.TreeSet;
 
 class StringPermutation {
 
-  public static Set<String> permute(String word) {
+  public static Set<String> permute(@NotNull String word) {
+    if (word == null)
+      throw new NullPointerException("word must be != null");
+
     Set<String> out = new TreeSet<>();
     permute(word, 0, out);
     return out;
